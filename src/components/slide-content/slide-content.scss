@@ -1,0 +1,13 @@
+:host {
+    display: none;
+}
+
+:host(.current) {
+    display: block;
+}
+
+:host {
+    box-sizing: border-box;
+    width: 90%;
+    margin: auto;
+}

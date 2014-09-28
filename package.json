@@ -1,0 +1,14 @@
+{
+  "name": "web-component-slides",
+  "version": "0.1.0",
+  "description": "",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.6.0",
+    "grunt-contrib-sass": "^0.8.1",
+    "grunt-inline": "^0.3.2"
+  },
+  "author": "Andrew Rota <rota.andrew@gmail.com>",
+  "license": "MIT"
+}

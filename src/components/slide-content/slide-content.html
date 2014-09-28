@@ -1,0 +1,15 @@
+<template id="slide-content-template">
+    <link href="slide-content.css?__inline=true" rel="stylesheet" />
+    <content></content>
+</template>
+<script type="text/javascript">
+    (function(window, undefined) {
+        var element = window.app.createElement('slide-content', 'slide-content-template');
+        element.show = function() {
+            this.classList.add('current');
+        };
+        element.hide = function() {
+            this.classList.remove('current');
+        };
+    }(window));
+</script>

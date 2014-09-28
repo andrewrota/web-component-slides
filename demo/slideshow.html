@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Components</title>
+    <script type="text/javascript" src="web-components.js"></script>
+    <link rel="import" href="../dist/components/slide-content/slide-content.html">
+    <link rel="import" href="../dist/components/slide-show/slide-show.html">
+</head>
+
+<body>
+    <slide-show>
+        <slide-content>
+            <h1>Hello World</h1>
+            <h2>A web components presentation</h2>
+        </slide-content>
+        <slide-content>
+            <h1>Outline</h1>
+            <ul>
+                <li>Lorem Ipsum 1</li>
+                <li>Lorem Ipsum 2</li>
+                <li>Lorem Ipsum 3</li>
+                <li>Lorem Ipsum 4</li>
+                <li>Lorem Ipsum 5</li>
+            </ul>
+        </slide-content>
+    </slide-show>
+    <script type="text/javascript">document.querySelector('slide-show').initialize()</script>
+</body>
+
+</html>

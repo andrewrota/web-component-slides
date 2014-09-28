@@ -1,0 +1,56 @@
+<template id="slide-show-template">
+    <style>
+
+</style>
+    <content></content>
+</template>
+<script type="text/javascript">
+    (function(window, undefined) {
+        // Create boilerplate element
+        var element = window.app.createElement('slide-show', 'slide-show-template', HTMLElement.prototype, {
+            attachedCallback: function() {},
+            attributeChangedCallback: function(attr, oldVal, newVal) {},
+            detachedCallback: function() {}
+        });
+
+        // Attach methods and properties to element
+        element.initialize = function() {
+            this.slides = Array.prototype.slice.call(this.querySelectorAll('slide-content'));
+            this.goTo(0);
+            this.addEventListener('click', this.goToNext.bind(this));
+            document.addEventListener('keydown', this.handleKeydown.bind(this));
+        };
+        element.RIGHT_KEY_CODE = 39;
+        element.LEFT_KEY_CODE = 37;
+        element.UP_KEY_CODE = 38;
+        element.DOWN_KEY_CODE = 40;
+        element.SPACE_KEY_CODE = 32;
+        element.handleKeydown = function(e) {
+            if (e.which === this.RIGHT_KEY_CODE || e.which === this.DOWN_KEY_CODE || e.which === this.SPACE_KEY_CODE) {
+                this.goToNext();
+            }
+            else if (e.which === this.LEFT_KEY_CODE || e.which === this.UP_KEY_CODE) {
+                this.goToPrev();
+            }
+        };
+        element.goToNext = function() {
+            if (this.slides[this.current + 1]) {
+                this.goTo(this.current + 1);
+            }
+        };
+        element.goToPrev = function() {
+            if (this.slides[this.current - 1]) {
+                this.goTo(this.current - 1);
+            }
+        };
+        element.goTo = function(i) {
+            this.slides.forEach(function(slide) {
+                slide.hide();
+            });
+            if (this.slides[i]) {
+                this.slides[i].show();
+                this.current = i;
+            }
+        }
+    }(window));
+</script>

@@ -1,0 +1,1 @@
+Slideshow library built with web components

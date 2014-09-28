@@ -1,0 +1,27 @@
+<template id="slide-content-template">
+    <style>
+:host {
+  display: none; }
+
+:host(.current) {
+  display: block; }
+
+:host {
+  box-sizing: border-box;
+  width: 90%;
+  margin: auto; }
+
+</style>
+    <content></content>
+</template>
+<script type="text/javascript">
+    (function(window, undefined) {
+        var element = window.app.createElement('slide-content', 'slide-content-template');
+        element.show = function() {
+            this.classList.add('current');
+        };
+        element.hide = function() {
+            this.classList.remove('current');
+        };
+    }(window));
+</script>
