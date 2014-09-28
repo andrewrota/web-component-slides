@@ -6,7 +6,20 @@
     <script type="text/javascript" src="web-components.js"></script>
     <link rel="import" href="../dist/components/slide-content/slide-content.html">
     <link rel="import" href="../dist/components/slide-show/slide-show.html">
+    <link rel="import" href="../bower_components/warpech-prism/code-prism.html">
     <style type="text/css">
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 125%;
+            line-height: 1.2;
+        }
+        code-prism {
+            font-size: 150%;
+        }
+        code-prism /deep/ pre {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
         .gif {
             width: 100%;
         }
@@ -31,15 +44,14 @@
         </slide-content>
         <slide-content>
             <h1>Code</h1>
-            <code>
-.css {
-  color: blue;
-  font-size: 150%;
-}
-            </code>
+            <code-prism language="css">
+.css1 { color: blue; font-size: 150%; }
+            </code-prism>
         </slide-content>
     </slide-show>
-    <script type="text/javascript">document.querySelector('slide-show').initialize()</script>
+    <script type="text/javascript">
+        document.querySelector('slide-show').initialize()
+    </script>
 </body>
 
 </html>

@@ -15,5 +15,8 @@
     "test",
     "tests",
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "warpech-prism": "git@github.com:andrewrota/warpech-prism.git#~0.1.0"
+  }
 }
