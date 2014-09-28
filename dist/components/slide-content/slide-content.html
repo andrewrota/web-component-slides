@@ -17,11 +17,25 @@
 <script type="text/javascript">
     (function(window, undefined) {
         var element = window.app.createElement('slide-content', 'slide-content-template');
+
+        // Attach methods and properties to element
         element.show = function() {
             this.classList.add('current');
+            this.resetImages();
         };
         element.hide = function() {
             this.classList.remove('current');
         };
+        element.resetImages = function() {
+            // Reset image src on timeout for animated gifs
+            var imagesToReset = this.querySelectorAll('img[data-reset]');
+            if (imagesToReset[0]) {
+                Array.prototype.slice.call(imagesToReset).forEach(function(image) {
+                    window.setTimeout(function() {
+                        image.src = image.src;
+                    }, 0);
+                });
+            }
+        }
     }(window));
 </script>
