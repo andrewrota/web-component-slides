@@ -5,7 +5,12 @@
   height: 0;
   position: absolute;
   top: 40vh;
-  cursor: pointer; }
+  cursor: pointer;
+  background: transparent;
+  padding: 0;
+  -webkit-appearance: none;
+  margin: 0;
+  border: none; }
 
 .prev {
   border-top: 10vh solid transparent;
@@ -20,9 +25,9 @@
   right: 10px; }
 
 </style>
-    <div class="prev"></div>
+    <button class="prev"></button>
     <content></content>
-    <div class="next"></div>
+    <button class="next"></button>
 </template>
 <script type="text/javascript">
     (function(window, undefined) {

@@ -4,6 +4,12 @@
     position: absolute;
     top: 40vh;
     cursor: pointer;
+    // Reset appearance of button element
+    background: transparent;
+    padding: 0;
+    -webkit-appearance: none;
+    margin: 0;
+    border: none;
 }
 .prev {
 	border-top: 10vh solid transparent;
