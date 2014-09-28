@@ -24,3 +24,12 @@
 	border-left: 10px solid lightgray;
 	right: 10px;
 }
+
+.progress-bar {
+    position: fixed;
+    height: 5px;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-color: gray;
+}

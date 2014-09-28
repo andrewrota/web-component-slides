@@ -24,13 +24,23 @@
   border-left: 10px solid lightgray;
   right: 10px; }
 
+.progress-bar {
+  position: fixed;
+  height: 5px;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background-color: gray; }
+
 </style>
     <button class="prev"></button>
     <content></content>
     <button class="next"></button>
+    <div class="progress-bar"></div>
 </template>
 <script type="text/javascript">
     (function(window, undefined) {
+
         // Create boilerplate element
         var element = window.app.createElement('slide-show', 'slide-show-template', HTMLElement.prototype, {
             attachedCallback: function() {},
@@ -41,6 +51,7 @@
         // Attach methods and properties to element
         element.initialize = function() {
             this.slides = Array.prototype.slice.call(this.querySelectorAll('slide-content'));
+            this.progressBar = this.shadowRoot.querySelector('.progress-bar');
             this.goTo(0);
             this.shadowRoot.querySelector('.next').addEventListener('click', this.goToNext.bind(this));
             this.shadowRoot.querySelector('.prev').addEventListener('click', this.goToPrev.bind(this));
@@ -76,6 +87,7 @@
             if (this.slides[i]) {
                 this.slides[i].show();
                 this.current = i;
+                this.progressBar.style.width = (this.current / (this.slides.length - 1)) * 100 + '%';
             }
         }
     }(window));
