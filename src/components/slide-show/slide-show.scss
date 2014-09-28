@@ -1,0 +1,20 @@
+.prev, .next {
+    width: 0;
+	height: 0; 
+    position: absolute;
+    top: 40vh;
+    cursor: pointer;
+}
+.prev {
+	border-top: 10vh solid transparent;
+	border-bottom: 10vh solid transparent; 
+	border-right: 10px solid lightgray; 
+	left: 10px;
+}
+
+.next {
+	border-top: 10vh solid transparent;
+	border-bottom: 10vh solid transparent;
+	border-left: 10px solid lightgray;
+	right: 10px;
+}

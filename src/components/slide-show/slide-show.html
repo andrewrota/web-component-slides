@@ -1,6 +1,8 @@
 <template id="slide-show-template">
     <link href="slide-show.css?__inline=true" rel="stylesheet" />
+    <div class="prev"></div>
     <content></content>
+    <div class="next"></div>
 </template>
 <script type="text/javascript">
     (function(window, undefined) {
@@ -15,7 +17,8 @@
         element.initialize = function() {
             this.slides = Array.prototype.slice.call(this.querySelectorAll('slide-content'));
             this.goTo(0);
-            this.addEventListener('click', this.goToNext.bind(this));
+            this.shadowRoot.querySelector('.next').addEventListener('click', this.goToNext.bind(this));
+            this.shadowRoot.querySelector('.prev').addEventListener('click', this.goToPrev.bind(this));
             document.addEventListener('keydown', this.handleKeydown.bind(this));
         };
         element.RIGHT_KEY_CODE = 39;
