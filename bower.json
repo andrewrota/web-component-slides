@@ -1,0 +1,19 @@
+{
+  "name": "web-component-slides",
+  "version": "0.1.0",
+  "homepage": "https://github.com/andrewrota/web-component-slides",
+  "authors": [
+    "Andrew Rota <rota.andrew@gmail.com>"
+  ],
+  "description": "Slideshow library built with web components",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "dist"
+  ]
+}
