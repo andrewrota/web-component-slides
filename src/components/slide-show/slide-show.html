@@ -19,10 +19,12 @@
         element.initialize = function() {
             this.slides = Array.prototype.slice.call(this.querySelectorAll('slide-content'));
             this.progressBar = this.shadowRoot.querySelector('.progress-bar');
-            this.goTo(0);
-            this.shadowRoot.querySelector('.next').addEventListener('click', this.goToNext.bind(this));
-            this.shadowRoot.querySelector('.prev').addEventListener('click', this.goToPrev.bind(this));
+            this.nextArrow = this.shadowRoot.querySelector('.next');
+            this.prevArrow = this.shadowRoot.querySelector('.prev');
+            this.nextArrow.addEventListener('click', this.goToNext.bind(this));
+            this.prevArrow.addEventListener('click', this.goToPrev.bind(this));
             document.addEventListener('keydown', this.handleKeydown.bind(this));
+            this.goTo(0);
         };
         element.RIGHT_KEY_CODE = 39;
         element.LEFT_KEY_CODE = 37;
@@ -48,13 +50,26 @@
             }
         };
         element.goTo = function(i) {
+            // First, hide all the slides
             this.slides.forEach(function(slide) {
                 slide.hide();
             });
+            // Then, if there's a slide to go to, show it
             if (this.slides[i]) {
                 this.slides[i].show();
                 this.current = i;
                 this.progressBar.style.width = (this.current / (this.slides.length - 1)) * 100 + '%';
+                if(!this.slides[i + 1]) {
+                    this.nextArrow.style.display = 'none';
+                } else {
+                    this.nextArrow.style.display = 'block';
+                }
+                if(!this.slides[i - 1]) {
+                    this.prevArrow.style.display = 'none';
+                } else {
+                    this.prevArrow.style.display = 'block';
+                }
+                
             }
         }
     }(window));
