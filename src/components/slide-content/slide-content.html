@@ -19,8 +19,10 @@
             var imagesToReset = this.querySelectorAll('img[data-reset]');
             if (imagesToReset[0]) {
                 Array.prototype.slice.call(imagesToReset).forEach(function(image) {
+                    var source = image.src;
+                    image.src = '';
                     window.setTimeout(function() {
-                        image.src = image.src;
+                        image.src = source;
                     }, 0);
                 });
             }

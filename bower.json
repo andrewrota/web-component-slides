@@ -17,6 +17,7 @@
     "dist"
   ],
   "dependencies": {
-    "warpech-prism": "git@github.com:andrewrota/warpech-prism.git#~0.1.0"
+    "warpech-prism": "git@github.com:andrewrota/warpech-prism.git#master",
+    "Sorting_quicksort_anim": "http://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif"
   }
 }
