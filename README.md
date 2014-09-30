@@ -11,6 +11,6 @@ A simple slideshow library built with web components.
 
 ## Install
 
-  npm install
-  bower install
-  grunt
+    npm install
+    bower install
+    grunt
