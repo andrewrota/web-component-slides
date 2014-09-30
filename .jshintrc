@@ -1,0 +1,6 @@
+{
+    "camelcase": true,
+    "maxerr": 50,
+    "eqeqeq": true,
+    "indent": 4
+}

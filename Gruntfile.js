@@ -45,6 +45,12 @@ module.exports = function(grunt) {
                 }
             }
         },
+        jshint: {
+            all: ['src/**/*.js', 'Gruntfile.js'],
+            options: {
+                jshintrc: true
+            }
+        },
         sass: {
             dist: {
                 files: [{
@@ -55,15 +61,27 @@ module.exports = function(grunt) {
                     ext: '.css'
                 }]
             }
+        },
+        uglify: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'dist',
+                    src: '**/*.js',
+                    dest: 'dist'
+                }]
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-inline');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-inline');
 
-    grunt.registerTask('default', ['clean:start', 'copy:distHtml', 'sass', 'inline', 'htmlmin', 'copy:distJs', 'clean:end',]);
+    grunt.registerTask('default', ['jshint', 'clean:start', 'copy:distHtml', 'sass', 'inline', 'htmlmin', 'copy:distJs', 'uglify', 'clean:end', ]);
 
 };
