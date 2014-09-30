@@ -1,6 +1,6 @@
 {
   "name": "web-component-slides",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A simple slideshow library built with web components.",
   "devDependencies": {
     "grunt": "^0.4.5",
