@@ -3,14 +3,23 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         clean: {
-            start: ['dist'],
+            start: ['dist/'],
             end: ['dist/components/']
         },
         copy: {
-            dist: {
+            distHtml: {
                 files: [{
                     expand: true,
                     src: ['components/**/*.html'],
+                    dest: 'dist/',
+                    cwd: 'src'
+                }]
+            },
+            distJs: {
+                files: [{
+                    flatten: true,
+                    expand: true,
+                    src: ['components/**/*.js'],
                     dest: 'dist/',
                     cwd: 'src'
                 }]
@@ -55,6 +64,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-inline');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
-    grunt.registerTask('default', ['clean:start', 'copy', 'sass', 'inline', 'htmlmin', 'clean:end',]);
+    grunt.registerTask('default', ['clean:start', 'copy:distHtml', 'sass', 'inline', 'htmlmin', 'copy:distJs', 'clean:end',]);
 
 };
