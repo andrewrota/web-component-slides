@@ -3,15 +3,15 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         clean: {
-            dist: ['build'],
-            css: ['build/components/**/*.css']
+            start: ['dist'],
+            end: ['dist/components/']
         },
         copy: {
             dist: {
                 files: [{
                     expand: true,
                     src: ['components/**/*.html'],
-                    dest: 'build/',
+                    dest: 'dist/',
                     cwd: 'src'
                 }]
             }
@@ -19,7 +19,21 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         inline: {
             dist: {
-                src: ['build/**/*.html']
+                src: ['dist/**/*.html']
+            }
+        },
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true,
+                    minifyJS: true,
+                    minifyCSS: true
+                },
+                files: {
+                    'dist/slide-content.html': 'dist/components/slide-content/slide-content.html',
+                    'dist/slide-show.html': 'dist/components/slide-show/slide-show.html'
+                }
             }
         },
         sass: {
@@ -28,7 +42,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'src',
                     src: ['components/**/*.scss'],
-                    dest: 'build/',
+                    dest: 'dist/',
                     ext: '.css'
                 }]
             }
@@ -39,7 +53,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-inline');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
-    grunt.registerTask('default', ['clean:dist', 'copy', 'sass', 'inline', 'clean:css']);
+    grunt.registerTask('default', ['clean:start', 'copy', 'sass', 'inline', 'htmlmin', 'clean:end',]);
 
 };
