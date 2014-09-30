@@ -7,16 +7,23 @@
 </template>
 <script type="text/javascript">
     (function(window, undefined) {
-
-        // Create boilerplate element
-        var element = window.app.createElement('slide-show', 'slide-show-template', HTMLElement.prototype, {
-            attachedCallback: function() {},
-            attributeChangedCallback: function(attr, oldVal, newVal) {},
-            detachedCallback: function() {}
+    
+        var elementName = 'slide-show';
+        var templateName = 'slide-show-template';
+        var template = document.currentScript.ownerDocument.getElementById(templateName).content;
+        var elementPrototype = Object.create(HTMLElement.prototype);
+        
+        elementPrototype.createdCallback = function() {
+            var shadowRoot = this.createShadowRoot();
+            var clone = document.importNode(template, true);
+            shadowRoot.appendChild(clone);
+        };
+        document.registerElement(elementName, {
+            prototype: elementPrototype
         });
 
         // Attach methods and properties to element
-        element.initialize = function() {
+        elementPrototype.initialize = function() {
             this.slides = Array.prototype.slice.call(this.querySelectorAll('slide-content'));
             this.progressBar = this.shadowRoot.querySelector('.progress-bar');
             this.nextArrow = this.shadowRoot.querySelector('.next');
@@ -26,12 +33,12 @@
             document.addEventListener('keydown', this.handleKeydown.bind(this));
             this.goTo(0);
         };
-        element.RIGHT_KEY_CODE = 39;
-        element.LEFT_KEY_CODE = 37;
-        element.UP_KEY_CODE = 38;
-        element.DOWN_KEY_CODE = 40;
-        element.SPACE_KEY_CODE = 32;
-        element.handleKeydown = function(e) {
+        elementPrototype.RIGHT_KEY_CODE = 39;
+        elementPrototype.LEFT_KEY_CODE = 37;
+        elementPrototype.UP_KEY_CODE = 38;
+        elementPrototype.DOWN_KEY_CODE = 40;
+        elementPrototype.SPACE_KEY_CODE = 32;
+        elementPrototype.handleKeydown = function(e) {
             if (e.which === this.RIGHT_KEY_CODE || e.which === this.DOWN_KEY_CODE || e.which === this.SPACE_KEY_CODE) {
                 this.goToNext();
             }
@@ -39,17 +46,17 @@
                 this.goToPrev();
             }
         };
-        element.goToNext = function() {
+        elementPrototype.goToNext = function() {
             if (this.slides[this.current + 1]) {
                 this.goTo(this.current + 1);
             }
         };
-        element.goToPrev = function() {
+        elementPrototype.goToPrev = function() {
             if (this.slides[this.current - 1]) {
                 this.goTo(this.current - 1);
             }
         };
-        element.goTo = function(i) {
+        elementPrototype.goTo = function(i) {
             // First, hide all the slides
             this.slides.forEach(function(slide) {
                 slide.hide();
