@@ -1,4 +1,4 @@
-# Web Component Slide
+# Web Component Slides
 
 A simple slideshow library built with web components.
 
