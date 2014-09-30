@@ -3,15 +3,15 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         clean: {
-            dist: ['dist'],
-            css: ['dist/components/**/*.css']
+            dist: ['build'],
+            css: ['build/components/**/*.css']
         },
         copy: {
             dist: {
                 files: [{
                     expand: true,
                     src: ['components/**/*.html'],
-                    dest: 'dist/',
+                    dest: 'build/',
                     cwd: 'src'
                 }]
             }
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         inline: {
             dist: {
-                src: ['dist/**/*.html']
+                src: ['build/**/*.html']
             }
         },
         sass: {
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'src',
                     src: ['components/**/*.scss'],
-                    dest: 'dist/',
+                    dest: 'build/',
                     ext: '.css'
                 }]
             }
