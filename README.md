@@ -7,7 +7,7 @@ A simple slideshow library built with web components.
 * Node
 * Bower
 * Grunt
-* Browser with Web Component support (e.g., Chrome 35+)
+* Browser with Web Component support (e.g., Chrome 36+)
 
 ## Install
 
