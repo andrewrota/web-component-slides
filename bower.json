@@ -10,8 +10,7 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "dist"
+    "bower_components"
   ],
   "devDependencies": {
     "warpech-prism": "git@github.com:andrewrota/warpech-prism.git#master",
