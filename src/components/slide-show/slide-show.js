@@ -10,7 +10,7 @@
         var clone = document.importNode(template, true);
         shadowRoot.appendChild(clone);
     };
-    document.registerElement(elementName, {
+    window.SlideShowElement = document.registerElement(elementName, {
         prototype: elementPrototype
     });
 

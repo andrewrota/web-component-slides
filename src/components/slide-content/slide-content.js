@@ -9,7 +9,7 @@
         var clone = document.importNode(template, true);
         shadowRoot.appendChild(clone);
     };
-    document.registerElement(elementName, {
+    window.SlideContentElement = document.registerElement(elementName, {
         prototype: elementPrototype
     });
     // Attach methods and properties to element
