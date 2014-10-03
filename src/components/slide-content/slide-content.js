@@ -9,9 +9,7 @@
         var clone = document.importNode(template, true);
         shadowRoot.appendChild(clone);
     };
-    window.SlideContentElement = document.registerElement(elementName, {
-        prototype: elementPrototype
-    });
+    
     // Attach methods and properties to element
     elementPrototype.show = function() {
         this.classList.add('current');
@@ -33,4 +31,7 @@
             });
         }
     };
+    window.SlideContentElement = document.registerElement(elementName, {
+        prototype: elementPrototype
+    });
 }(window));

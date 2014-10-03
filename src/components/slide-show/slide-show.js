@@ -10,9 +10,6 @@
         var clone = document.importNode(template, true);
         shadowRoot.appendChild(clone);
     };
-    window.SlideShowElement = document.registerElement(elementName, {
-        prototype: elementPrototype
-    });
 
     // Attach methods and properties to element
     elementPrototype.initialize = function() {
@@ -73,4 +70,8 @@
 
         }
     };
+    
+    window.SlideShowElement = document.registerElement(elementName, {
+        prototype: elementPrototype
+    });
 }(window));
