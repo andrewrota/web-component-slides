@@ -20,10 +20,9 @@
         this.nextArrow.addEventListener('click', this.goToNext.bind(this));
         this.prevArrow.addEventListener('click', this.goToPrev.bind(this));
         document.addEventListener('keydown', this.handleKeydown.bind(this));
-        if (window.location.hash) {
-            this.goTo(window.location.hash.substr(1));
-        }
-        else {
+        if (typeof parseInt(window.location.hash.substr(1), 10) === 'number') {
+            this.goTo(parseInt(window.location.hash.substr(1), 10));
+        } else {
             this.goTo(0);
         }
     };
