@@ -20,7 +20,12 @@
         this.nextArrow.addEventListener('click', this.goToNext.bind(this));
         this.prevArrow.addEventListener('click', this.goToPrev.bind(this));
         document.addEventListener('keydown', this.handleKeydown.bind(this));
-        this.goTo(0);
+        if (window.location.hash) {
+            this.goTo(window.location.hash.substr(1));
+        }
+        else {
+            this.goTo(0);
+        }
     };
     elementPrototype.RIGHT_KEY_CODE = 39;
     elementPrototype.LEFT_KEY_CODE = 37;
@@ -54,6 +59,7 @@
         if (this.slides[i]) {
             this.slides[i].show();
             this.current = i;
+            window.location.hash = this.current;
             this.progressBar.style.width = (this.current / (this.slides.length - 1)) * 100 + '%';
             if (!this.slides[i + 1]) {
                 this.nextArrow.style.display = 'none';
@@ -70,7 +76,7 @@
 
         }
     };
-    
+
     window.SlideShowElement = document.registerElement(elementName, {
         prototype: elementPrototype
     });
