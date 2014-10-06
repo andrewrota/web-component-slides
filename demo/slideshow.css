@@ -1,0 +1,25 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 125%;
+    line-height: 1.2;
+}
+code-prism {
+    font-size: 150%;
+}
+code-prism /deep/ pre {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+.gif {
+    height: 90vh;
+    margin: 0 auto;
+    width: 100%;
+}
+.attr small {
+    font-size: 50%;
+    display: block;
+}
+slide-content .title-block {
+    margin-top: 40vh;
+    text-align: center;
+}
