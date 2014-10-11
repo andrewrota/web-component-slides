@@ -13,7 +13,6 @@
     "bower_components"
   ],
   "devDependencies": {
-    "warpech-prism": "git@github.com:andrewrota/warpech-prism.git#master",
-    "Sorting_quicksort_anim": "http://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif"
+    "warpech-prism": "git@github.com:andrewrota/warpech-prism.git#master"
   }
 }
